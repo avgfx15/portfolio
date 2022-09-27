@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row">
+    <h1>Contact Us</h1>
+    <form
+      class="mx-auto mb-3"
+      #contactUsForm="ngForm"
+      (ngSubmit)="submitContactUsForm(contactUsForm.value)"
+    >
+      <div class="mb-3">
+        <label for="" class="form-label fw-bold fs-5">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="name"
+          id=""
+          aria-describedby="emailHelpId"
+          placeholder="Enter Your Name"
+          ngModel
+        />
+        <small id="emailHelpId" class="form-text text-muted">Help text</small>
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label fw-bold fs-5">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          name="email"
+          id=""
+          aria-describedby="emailHelpId"
+          placeholder="Enter Your Email"
+          ngModel
+        />
+        <small id="emailHelpId" class="form-text text-muted">Help text</small>
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label fw-bold fs-5">Mobile</label>
+        <input
+          type="text"
+          class="form-control"
+          name="mobile"
+          id=""
+          aria-describedby="emailHelpId"
+          placeholder="Enter Your Mobile No"
+          ngModel
+        />
+        <small id="emailHelpId" class="form-text text-muted">Help text</small>
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label fw-bold fs-5">Message</label>
+        <textarea
+          name="message"
+          id=""
+          aria-describedby="emailHelpId"
+          placeholder="Write Your Message"
+          rows="5"
+          class="form-control"
+          ngModel
+        ></textarea>
+        <small id="emailHelpId" class="form-text text-muted">Help text</small>
+      </div>
+      <button class="btn btn-submit btn-primary">Seller Sign Up</button>
+    </form>
+  </div>
+</div>
