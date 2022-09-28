@@ -1,6 +1,9 @@
-<!-- <div class="container">
+<div class="container">
   <div class="row">
     <h1>Contact Us</h1>
+    <div class="alert alert-success" *ngIf="datasaved">
+      {{ massage }}
+    </div>
     <form
       class="mx-auto mb-3"
       #contactUsForm="ngForm"
@@ -61,16 +64,30 @@
       <button class="btn btn-submit btn-primary">Seller Sign Up</button>
     </form>
   </div>
-</div> -->
+</div>
 
-<div class="container-fluid">
-  <div class="row">
-    <h1>Get Details</h1>
-    <div class="container" *ngFor="let contactUsMessage of AllContactUsMessage">
-      <h1>Name : - {{ contactUsMessage.name }}</h1>
-      <h1>Email : - {{ contactUsMessage.email }}</h1>
-      <h1>Mobile : - {{ contactUsMessage.mobile }}</h1>
-      <h1>Message : - {{ contactUsMessage.message }}</h1>
+<h1>Get Details</h1>
+<div class="container">
+  <div
+    class="row col-md-12"
+    *ngFor="let contactUsMessage of AllContactUsMessage"
+  >
+    <div class="card col-md-4">
+      <div class="card-body">
+        <h5 class="card-title">{{ contactUsMessage.name }}</h5>
+        <h6 class="card-subtitle mb-2">
+          <p class="font-weight-bold fs-6">Email : -</p>
+          {{ contactUsMessage.email }}
+        </h6>
+        <h6 class="card-subtitle mb-2">
+          <p class="font-weight-bold fs-6">Mobile : -</p>
+          {{ contactUsMessage.mobile }}
+        </h6>
+        <h6 class="card-text">
+          <p class="font-weight-bold fs-6">Message : -</p>
+          {{ contactUsMessage.message }}
+        </h6>
+      </div>
     </div>
   </div>
 </div>

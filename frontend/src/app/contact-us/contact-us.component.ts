@@ -10,6 +10,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ContactUsComponent implements OnInit {
   AllContactUsMessage: Contactusmodel[] | any = [];
+
+  datasaved = false;
+  massage: string = '';
   constructor(
     private contactUsService: ContactusService,
     private route: ActivatedRoute,
@@ -21,6 +24,8 @@ export class ContactUsComponent implements OnInit {
   }
 
   getData() {
+    console.log(this.contactUsService);
+
     this.contactUsService
       .getContactUsMessage()
       .subscribe(
@@ -31,5 +36,12 @@ export class ContactUsComponent implements OnInit {
 
   submitContactUsForm(data: any) {
     console.log(data);
+    console.log(this.contactUsService);
+
+    this.contactUsService.postContactUsMessage(data).subscribe((response) => {
+      console.log(response);
+    });
+    this.datasaved = true;
+    this.massage = 'Contact Us Message Sent';
   }
 }
