@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { AdminModule } from './admin/admin.module';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,13 @@ import { AboutUsComponent } from './about-us/about-us.component';
     ContactUsComponent,
     AboutUsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, AdminModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    AdminModule,
+    FormsModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
