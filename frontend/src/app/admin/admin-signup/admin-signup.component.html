@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="row">
+    <h1>Admin Sign Up</h1>
+    <!-- <div class="alert alert-success" *ngIf="datasaved">
+      {{ massage }}
+    </div> -->
+    <form
+      #adminSignupForm="ngForm"
+      (ngSubmit)="adminSignup(adminSignupForm.value)"
+    >
+      <div class="mb-3">
+        <label for="" class="form-label">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="name"
+          id=""
+          aria-describedby="nameHelpId"
+          placeholder="Enter Your Name"
+          ngModel
+        />
+        <small id="nameHelpId" class="form-text text-muted">Help text</small>
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          name="email"
+          id=""
+          aria-describedby="emailHelpId"
+          placeholder="Enter Your Email"
+          ngModel
+        />
+        <small id="emailHelpId" class="form-text text-muted">Help text</small>
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Password</label>
+        <input
+          type="text"
+          class="form-control"
+          name="password"
+          id=""
+          aria-describedby="passwordHelpId"
+          placeholder="Enter Your Password"
+          ngModel
+        />
+        <small id="passwordHelpId" class="form-text text-muted"
+          >Help text</small
+        >
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Confirm Password</label>
+        <input
+          type="text"
+          class="form-control"
+          name="cPassword"
+          id=""
+          aria-describedby="cPasswordHelpId"
+          placeholder="Enter Password Again"
+          ngModel
+        />
+        <small id="cPasswordHelpId" class="form-text text-muted"
+          >Help text</small
+        >
+      </div>
+      <button>Admin Register</button>
+    </form>
+  </div>
+</div>

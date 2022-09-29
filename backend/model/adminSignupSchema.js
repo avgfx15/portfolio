@@ -1,25 +1,25 @@
 const mongoose = require("mongoose"); // Erase if already required
 
 // Declare the Schema of the Mongo model
-var contactUsSchema = new mongoose.Schema(
+var adminSignupSchema = new mongoose.Schema(
   {
     name: {
       type: String,
       required: true,
-      // unique: true,
+      //   unique: true,
       index: true,
     },
     email: {
       type: String,
       required: true,
-      // unique: true,
+      unique: true,
     },
-    mobile: {
+
+    password: {
       type: String,
       required: true,
-      // unique: true,
     },
-    message: {
+    cPassword: {
       type: String,
       required: true,
     },
@@ -28,7 +28,7 @@ var contactUsSchema = new mongoose.Schema(
 );
 
 //Export the model
-module.exports = ContactUsSchema = mongoose.model(
-  "ContactUsSchema",
-  contactUsSchema
+module.exports = AdminSignupSchema = mongoose.model(
+  "AdminSignupSchema",
+  adminSignupSchema
 );
