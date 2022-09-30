@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
     <h1>Admin Sign Up</h1>
-    <!-- <div class="alert alert-success" *ngIf="datasaved">
-      {{ massage }}
-    </div> -->
+    <div class="alert alert-success" *ngIf="datasaved">
+      {{ message }}
+    </div>
     <form
       #adminSignupForm="ngForm"
       (ngSubmit)="adminSignup(adminSignupForm.value)"
@@ -13,13 +13,26 @@
         <input
           type="text"
           class="form-control"
+          #name="ngModel"
+          required
+          [class.is-invalid]="name.invalid && name.touched"
           name="name"
           id=""
           aria-describedby="nameHelpId"
           placeholder="Enter Your Name"
-          ngModel
+          [(ngModel)]="adminSignupForm.name"
         />
-        <small id="nameHelpId" class="form-text text-muted">Help text</small>
+        <!-- <small
+          id="nameHelpId"
+          class="form-text text-danger"
+          [class.d-none]="name.valid || name.untouched"
+          >Name is Required</small
+        > -->
+        <div *ngIf="name.errors && (name.invalid || name.touched)">
+          <small class="text-danger" *ngIf="name.errors?.['required']"
+            >Name is Required</small
+          >
+        </div>
       </div>
       <div class="mb-3">
         <label for="" class="form-label">Email</label>
@@ -39,32 +52,45 @@
         <input
           type="text"
           class="form-control"
+          required
+          #password="ngModel"
+          [class.is-invalid]="password.invalid && password.touched"
           name="password"
           id=""
+          minlength="6"
+          pattern=""
           aria-describedby="passwordHelpId"
           placeholder="Enter Your Password"
-          ngModel
+          [(ngModel)]="adminSignupForm.name"
         />
-        <small id="passwordHelpId" class="form-text text-muted"
-          >Help text</small
-        >
+        <div *ngIf="password.errors && (password.invalid || password.touched)">
+          <small class="text-danger" *ngIf="password.errors?.['required']"
+            >Password is Required</small
+          >
+          <small class="text-danger" *ngIf="password.errors?.['minlength']"
+            >Password Must be 10 digit long</small
+          >
+        </div>
       </div>
       <div class="mb-3">
         <label for="" class="form-label">Confirm Password</label>
         <input
           type="text"
           class="form-control"
+          #cPassword="ngModel"
           name="cPassword"
+          required
+          minlength="6"
           id=""
           aria-describedby="cPasswordHelpId"
           placeholder="Enter Password Again"
-          ngModel
+          [(ngModel)]="adminSignupForm.name"
         />
         <small id="cPasswordHelpId" class="form-text text-muted"
           >Help text</small
         >
       </div>
-      <button>Admin Register</button>
+      <button class="mb-3 btn btn-submit btn-primary">Admin Register</button>
     </form>
   </div>
 </div>

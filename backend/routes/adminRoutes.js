@@ -3,10 +3,12 @@ const adminRoutes = express.Router();
 const AdminSignupSchema = require("../model/adminSignupSchema");
 const bcrypt = require("bcryptjs");
 
+// ` All Admin Data Get Method
 adminRoutes.get("/", async (req, res) => {
   res.send("Hello World! admin Signup routes");
 });
 
+// + Admin Sign Up Post Method
 adminRoutes.post("/", async (req, res) => {
   const { name, email, password, cPassword } = req.body;
   try {
@@ -18,7 +20,7 @@ adminRoutes.post("/", async (req, res) => {
         const adminData = new AdminSignupSchema({
           name,
           email,
-          password: hashPassword,
+          password,
           cPassword,
         });
         const salt = await bcrypt.genSalt(10);
@@ -30,15 +32,15 @@ adminRoutes.post("/", async (req, res) => {
 
         res
           .status(200)
-          .json({ message: "New Admin Sign Up Successfully", adminData });
+          .json({ msgBack: "New Admin Sign Up Successfully", adminData });
       } else {
-        res.status(401).json({ message: "Password doesn't match" });
+        res.status(401).json({ msgBack: "Password doesn't match" });
       }
     } else {
-      res.status(401).json({ message: "Admin Already Registered" });
+      res.status(401).json({ msgBack: "Admin Already Registered" });
     }
   } catch (error) {
-    res.status(501).json({ message: "Server Error" });
+    res.status(501).json({ msgBack: "Server Error" });
   }
 });
 

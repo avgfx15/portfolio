@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from '../service/admin.service';
 
 @Component({
   selector: 'app-admin-signup',
@@ -6,11 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-signup.component.css'],
 })
 export class AdminSignupComponent implements OnInit {
-  constructor() {}
+  datasaved = false;
+  message: string | any = '';
+  msgBack: string = '';
+  constructor(private adminService: AdminService) {}
 
   ngOnInit(): void {}
 
   adminSignup(data: any) {
-    console.log(data);
+    this.adminService.adminSignupService(data).subscribe((response) => {
+      console.log(response);
+      this.message = response;
+      this.datasaved = true;
+    });
   }
 }
